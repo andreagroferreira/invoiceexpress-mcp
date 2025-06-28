@@ -1,12 +1,18 @@
 {
-  "name": "mcp-invoice-express",
+  "name": "@wizardingcode/invoiceexpress-mcp",
   "version": "1.0.0",
-  "description": "Production-grade MCP server for InvoiceExpress API integration",
+  "description": "Complete InvoiceExpress MCP server with 60+ tools for Portuguese invoice management, SAF-T compliance, and treasury operations",
   "main": "dist/index.js",
   "type": "module",
   "bin": {
-    "mcp-invoice-express": "./dist/index.js"
+    "invoiceexpress-mcp": "./dist/index.js"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "dev": "nodemon --exec tsx src/index.ts",
     "build": "tsc",
@@ -19,17 +25,43 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "typecheck": "tsc --noEmit",
     "pre-commit": "npm run typecheck && npm run lint && npm run test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "mcp",
     "model-context-protocol",
-    "invoice-express",
+    "invoiceexpress",
+    "invoice",
+    "billing",
+    "portuguese-tax",
+    "saft",
+    "treasury",
+    "accounting",
     "ai-tools",
-    "typescript"
+    "typescript",
+    "portugal",
+    "autoridade-tributaria",
+    "cursor",
+    "claude"
   ],
-  "author": "andreagroferreira",
+  "author": {
+    "name": "WizardingCode.io",
+    "email": "andreagroferreira.af@gmail.com",
+    "url": "https://wizardingcode.io"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreagroferreira/invoiceexpress-mcp.git"
+  },
+  "homepage": "https://github.com/andreagroferreira/invoiceexpress-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/andreagroferreira/invoiceexpress-mcp/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^0.5.0",
     "axios": "^1.6.7",

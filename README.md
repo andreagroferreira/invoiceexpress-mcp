@@ -1,547 +1,699 @@
-# MCP Invoice Express
+# InvoiceExpress MCP - Complete Portuguese Invoice Management for AI
 
-Production-grade MCP (Model Context Protocol) server for InvoiceExpress API integration. This server enables AI assistants like Claude Desktop, OpenAI, and ChatGPT to interact with InvoiceExpress functionality through standardized MCP tools.
+[![Website](https://img.shields.io/badge/Website-wizardingcode.io-blue)](https://wizardingcode.io) [![NPM Version](https://img.shields.io/npm/v/@wizardingcode/invoiceexpress-mcp)](https://www.npmjs.com/package/@wizardingcode/invoiceexpress-mcp) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![smithery badge](https://smithery.ai/badge/@wizardingcode/invoiceexpress-mcp)](https://smithery.ai/server/@wizardingcode/invoiceexpress-mcp) [<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-Install%20InvoiceExpress%20MCP-0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22invoiceexpress%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40wizardingcode%2Finvoiceexpress-mcp%40latest%22%5D%7D)
 
-## Features
+[![Português](https://img.shields.io/badge/docs-Português-green)](./README.pt.md)
 
-- 🚀 **Production-ready**: Built with TypeScript, full type safety, and enterprise-grade error handling
-- 🔧 **MCP Tools**: Complete set of tools for invoice and client management
-- 🔐 **Secure**: API key authentication with environment variable management
-- 📊 **Rate Limiting**: Built-in rate limiting to respect API quotas
-- 🪝 **Error Handling**: Comprehensive error handling with detailed error messages
-- 📝 **Logging**: Structured logging with Winston
-- ✅ **Testing**: Jest setup with >80% coverage target
-- 🌐 **Portuguese Format Support**: Automatic date conversion to PT format (dd/mm/yyyy)
+## ❌ Without InvoiceExpress MCP
 
-## Available Tools
+Managing Portuguese invoices with AI becomes frustrating and error-prone:
 
-### Invoice Management
-- `invoice_list` - List invoices with advanced filters (status, date range, client, text search, etc.)
-- `invoice_create` - Create new invoices with items and client details
-- `invoice_get` - Get detailed information about a specific invoice
-- `invoice_update` - Update existing invoices (date, items, client, etc.)
-- `invoice_send_email` - Send invoices by email with customizable message
-- `invoice_generate_pdf` - Generate PDF for invoices (with second copy option)
-- `invoice_change_state` - Change invoice state (finalize, cancel, delete)
-- `invoice_related_documents` - Get all documents related to a specific invoice
-- `invoice_generate_payment` - Generate a payment receipt for an invoice
-- `invoice_cancel_payment` - Cancel a payment receipt
-- `invoice_get_qrcode` - Get QR code for a finalized invoice
+- ❌ Manual invoice creation with outdated API examples
+- ❌ No SAF-T compliance automation for Portuguese tax reporting
+- ❌ Missing Portuguese tax calculations and validations
+- ❌ No integration with Autoridade Tributária (AT) systems
+- ❌ Complex treasury and client balance management
 
-### Client Management
-- `client_list` - List clients with search filters
-- `client_create` - Create new clients
-- `client_get` - Get client details by ID or code
-- `client_update` - Update existing client information
-- `client_find_by_name` - Find client by exact name match
-- `client_find_by_code` - Find client by code
-- `client_list_invoices` - List all invoices for a specific client
+## ✅ With InvoiceExpress MCP
 
-### Estimate Management
-- `estimate_list` - List estimates with advanced filters (type, status, date range, etc.)
-- `estimate_create` - Create new estimates (quotes, proformas, fees notes)
-- `estimate_get` - Get detailed information about a specific estimate
-- `estimate_update` - Update existing estimates
-- `estimate_send_email` - Send estimates by email with customizable message
-- `estimate_generate_pdf` - Generate PDF for estimates
-- `estimate_change_state` - Change estimate state (finalize, accept, refuse, cancel, delete)
+InvoiceExpress MCP provides complete Portuguese invoice management with 60+ specialized tools:
 
-### Guide Management
-- `guide_list` - List guides with required filters (shippings, transports, devolutions)
-- `guide_create` - Create new guides with origin/destination addresses
-- `guide_get` - Get detailed information about a specific guide
-- `guide_update` - Update existing guides
-- `guide_send_email` - Send guides by email with customizable message
-- `guide_generate_pdf` - Generate PDF for guides
-- `guide_change_state` - Change guide state (finalize, cancel, delete)
-- `guide_get_qrcode` - Get QR code for finalized guides
+Add `Create an invoice for client "Tech Solutions" with Portuguese tax compliance` to your prompt in Cursor:
 
-### Item Management
-- `item_list` - List items/products with pagination
-- `item_create` - Create new items with tax information
-- `item_get` - Get detailed information about a specific item
-- `item_update` - Update existing items
-- `item_delete` - Delete items
+```txt
+Create an invoice for client "Tech Solutions Ltd" with VAT 23% and generate SAF-T for tax authority submission
+```
 
-## Installation
+```txt
+Export monthly SAF-T file for January 2024 and update client payment status
+```
+
+InvoiceExpress MCP delivers:
+
+- ✅ **60+ Specialized Tools**: Complete invoice, client, and treasury management
+- ✅ **Portuguese Tax Compliance**: Automatic SAF-T generation, AT integration
+- ✅ **Multi-Document Support**: Invoices, estimates, guides, treasury movements
+- ✅ **Enterprise-Grade**: TypeScript, error handling, clean architecture
+- ✅ **Portuguese Date Formats**: Automatic DD/MM/YYYY conversion
+
+## 🚀 Complete Feature Set
+
+### 📧 Invoice Management (11 tools)
+- Create, update, and manage invoices with Portuguese tax compliance
+- Generate PDFs, QR codes, and email delivery
+- Handle payments, refunds, and document states
+- Support for all Portuguese invoice types (simplified, receipts, credit notes)
+
+### 👥 Client Management (7 tools)
+- Complete client database with Portuguese fiscal information
+- Search by name, code, or tax ID
+- Track client invoices and payment history
+- Address and contact management
+
+### 📋 Estimates & Quotes (7 tools)
+- Professional quotes, proformas, and fee notes
+- Convert estimates to invoices seamlessly
+- PDF generation and email delivery
+- State management workflow
+
+### 🚚 Transport & Shipping (8 tools)
+- Shipping guides, transport documents, devolution notes
+- QR code generation for tracking
+- Integration with Portuguese logistics requirements
+- Document workflow automation
+
+### 📦 Product Catalog (5 tools)
+- Complete product and service management
+- Tax rate assignment and pricing
+- Inventory tracking integration
+- Portuguese tax code support
+
+### 🔢 Document Sequences (5 tools)
+- Portuguese legal document numbering
+- Autoridade Tributária (AT) registration
+- Validation code management
+- Compliance with Portuguese legislation
+
+### 💰 Tax Management (5 tools)
+- Portuguese VAT rates (IVA 6%, 13%, 23%)
+- Regional tax support (Açores, Madeira)
+- Custom tax configuration
+- Automatic tax calculations
+
+### 🏢 Account Management (5 tools)
+- Multi-account support for agencies
+- AT communication configuration
+- User management and permissions
+- Account creation for existing users
+
+### 📊 SAF-T Compliance (1 tool)
+- Monthly SAF-T file generation for Portuguese tax authority
+- Automatic submission deadlines (5th of each month)
+- XML format compliance with AT requirements
+- Audit trail maintenance
+
+### 💳 Treasury Operations (7 tools)
+- Client balance management and tracking
+- Payment and reimbursement recording
+- Financial regularizations
+- Treasury movement history
+
+## 🛠️ Installation
+
+### Requirements
+
+- Node.js >= v18.0.0
+- InvoiceExpress account with API access
+- Cursor, Claude Desktop, VS Code, or another MCP Client
+
+<details>
+<summary><b>Installing via Smithery</b></summary>
+
+To install InvoiceExpress MCP Server for any client automatically via [Smithery](https://smithery.ai/server/@wizardingcode/invoiceexpress-mcp):
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/mcp-invoice-express.git
-cd mcp-invoice-express
-
-# Install dependencies
-npm install
-
-# Copy environment variables
-cp .env.example .env
-
-# Edit .env with your InvoiceExpress credentials
+npx -y @smithery/cli@latest install @wizardingcode/invoiceexpress-mcp --client <CLIENT_NAME> --key <YOUR_SMITHERY_KEY>
 ```
 
-## Configuration
+You can find your Smithery key in the [Smithery.ai webpage](https://smithery.ai/server/@wizardingcode/invoiceexpress-mcp).
 
-Edit the `.env` file with your InvoiceExpress credentials:
+</details>
 
-```env
-INVOICE_EXPRESS_API_KEY=your_api_key_here
-INVOICE_EXPRESS_ACCOUNT_NAME=your_account_name_here
-```
+<details>
+<summary><b>Install in Cursor</b></summary>
 
-## Development
+Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
 
-```bash
-# Run in development mode with hot reload
-npm run dev
+Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file is the recommended approach. You may also install in a specific project by creating `.cursor/mcp.json` in your project folder. See [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol) for more info.
 
-# Build for production
-npm run build
+> Since Cursor 1.0, you can click the install button below for instant one-click installation.
 
-# Run tests
-npm test
+#### Cursor Local Server Connection
 
-# Run tests with coverage
-npm run test:coverage
-
-# Lint code
-npm run lint
-
-# Format code
-npm run format
-```
-
-## Integration with AI Assistants
-
-### Claude Desktop
-
-1. Build the project:
-```bash
-npm run build
-```
-
-2. Add to your Claude Desktop configuration (`claude_desktop_config.json`):
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=invoiceexpress&config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsIkB3aXphcmRpbmdjb2RlL2ludm9pY2VleHByZXNzLW1jcEBsYXRlc3QiXSwiZW52Ijp7IklOVk9JQ0VfRVhQUkVTU19BUElfS0VZIjoieW91ci1hcGkta2V5IiwiSU5WT0lDRV9FWFBSRVNTX0FDQ09VTlRfTkFNRSI6InlvdXItYWNjb3VudC1uYW1lIn19)
 
 ```json
 {
   "mcpServers": {
-    "invoice-express": {
-      "command": "node",
-      "args": ["/path/to/mcp-invoice-express/dist/index.js"],
+    "invoiceexpress": {
+      "command": "npx",
+      "args": ["-y", "@wizardingcode/invoiceexpress-mcp@latest"],
       "env": {
-        "INVOICE_EXPRESS_API_KEY": "your_api_key",
-        "INVOICE_EXPRESS_ACCOUNT_NAME": "your_account_name",
-        "MCP_MODE": "true"
+        "INVOICEEXPRESS_API_KEY": "your-api-key",
+        "INVOICEEXPRESS_ACCOUNT_NAME": "your-account-name"
       }
     }
   }
 }
 ```
 
-### OpenAI / ChatGPT
+<details>
+<summary>Alternative: Use Bun</summary>
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=invoiceexpress&config=eyJjb21tYW5kIjoiYnVueCIsImFyZ3MiOlsiLXkiLCJAd2l6YXJkaW5nY29kZS9pbnZvaWNlZXhwcmVzcy1tY3BAbGF0ZXN0Il0sImVudiI6eyJJTlZPSUNFX0VYUFJFU1NfQVBJX0tFWSI6InlvdXItYXBpLWtleSIsIklOVk9JQ0VfRVhQUkVTU19BQ0NPVU5UX05BTUUiOiJ5b3VyLWFjY291bnQtbmFtZSJ9fQ%3D%3D)
 
-For integration with OpenAI/ChatGPT, you'll need to:
-1. Deploy the MCP server to a accessible endpoint
-2. Configure it as an Action in ChatGPT or use it via OpenAI's function calling
+```json
+{
+  "mcpServers": {
+    "invoiceexpress": {
+      "command": "bunx",
+      "args": ["-y", "@wizardingcode/invoiceexpress-mcp@latest"],
+      "env": {
+        "INVOICEEXPRESS_API_KEY": "your-api-key",
+        "INVOICEEXPRESS_ACCOUNT_NAME": "your-account-name"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Alternative: Use Deno</summary>
+
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=invoiceexpress&config=eyJjb21tYW5kIjoiZGVubyIsImFyZ3MiOlsicnVuIiwiLS1hbGxvdy1lbnY9SU5WT0lDRV9FWFBSRVNTX0FQSV9LRVksSU5WT0lDRV9FWFBSRVNTX0FDQ09VTlRfTkFNRSxOT19ERVBSRUNBVElPTixUUkFDRV9ERVBSRUNBVElPTiIsIi0tYWxsb3ctbmV0IiwibnBtOkB3aXphcmRpbmdjb2RlL2ludm9pY2VleHByZXNzLW1jcCJdLCJlbnYiOnsiSU5WT0lDRV9FWFBSRVNTX0FQSV9LRVkiOiJ5b3VyLWFwaS1rZXkiLCJJTlZPSUNFX0VYUFJFU1NfQUNDT1VOVF9OQU1FIjoieW91ci1hY2NvdW50LW5hbWUifX0%3D)
+
+```json
+{
+  "mcpServers": {
+    "invoiceexpress": {
+      "command": "deno",
+      "args": ["run", "--allow-env=INVOICEEXPRESS_API_KEY,INVOICEEXPRESS_ACCOUNT_NAME,NO_DEPRECATION,TRACE_DEPRECATION", "--allow-net", "npm:@wizardingcode/invoiceexpress-mcp"],
+      "env": {
+        "INVOICEEXPRESS_API_KEY": "your-api-key",
+        "INVOICEEXPRESS_ACCOUNT_NAME": "your-account-name"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+</details>
+
+<details>
+<summary><b>Install in VS Code</b></summary>
+
+[<img alt="Install in VS Code (npx)" src="https://img.shields.io/badge/VS_Code-Install%20InvoiceExpress%20MCP-0098FF">](https://insiders.vscode.dev/redirect?url=vscode%3Amcp%2Finstall%3F%7B%22name%22%3A%22invoiceexpress%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40wizardingcode%2Finvoiceexpress-mcp%40latest%22%5D%7D)
+[<img alt="Install in VS Code Insiders (npx)" src="https://img.shields.io/badge/VS_Code_Insiders-Install%20InvoiceExpress%20MCP-24bfa5">](https://insiders.vscode.dev/redirect?url=vscode-insiders%3Amcp%2Finstall%3F%7B%22name%22%3A%22invoiceexpress%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40wizardingcode%2Finvoiceexpress-mcp%40latest%22%5D%7D)
+
+Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) for more info.
+
+#### VS Code Local Server Connection
+
+```json
+"mcp": {
+  "servers": {
+    "invoiceexpress": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@wizardingcode/invoiceexpress-mcp@latest"],
+      "env": {
+        "INVOICEEXPRESS_API_KEY": "your-api-key",
+        "INVOICEEXPRESS_ACCOUNT_NAME": "your-account-name"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Claude Desktop</b></summary>
+
+Add this to your Claude Desktop `claude_desktop_config.json` file. See [Claude Desktop MCP docs](https://modelcontextprotocol.io/quickstart/user) for more info.
+
+```json
+{
+  "mcpServers": {
+    "InvoiceExpress": {
+      "command": "npx",
+      "args": ["-y", "@wizardingcode/invoiceexpress-mcp@latest"],
+      "env": {
+        "INVOICEEXPRESS_API_KEY": "your-api-key",
+        "INVOICEEXPRESS_ACCOUNT_NAME": "your-account-name"
+      }
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Windsurf</b></summary>
+
+Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.windsurf.com/windsurf/mcp) for more info.
+
+#### Windsurf Local Server Connection
+
+```json
+{
+  "mcpServers": {
+    "invoiceexpress": {
+      "command": "npx",
+      "args": ["-y", "@wizardingcode/invoiceexpress-mcp@latest"],
+      "env": {
+        "INVOICEEXPRESS_API_KEY": "your-api-key",
+        "INVOICEEXPRESS_ACCOUNT_NAME": "your-account-name"
+      }
+    }
+  }
+}
+```
 
-## Usage Examples
+</details>
 
-### List Invoices
-```
-Use the invoice_list tool to show me all invoices from this month with status "sent"
-```
+<details>
+<summary><b>Install in Zed</b></summary>
 
-### Create Invoice
-```
-Create an invoice for client "ABC Company" with:
-- Date: 2024-01-15
-- Due date: 2024-02-15
-- Item: Consulting services, €1000, quantity 10 hours
-```
+Add this to your Zed `settings.json`. See [Zed Context Server docs](https://zed.dev/docs/assistant/context-servers) for more info.
 
-### Send Invoice by Email
-```
-Send invoice ID 12345 by email to client@example.com with a custom message
+```json
+{
+  "context_servers": {
+    "InvoiceExpress": {
+      "command": {
+        "path": "npx",
+        "args": ["-y", "@wizardingcode/invoiceexpress-mcp@latest"]
+      },
+      "settings": {
+        "INVOICEEXPRESS_API_KEY": "your-api-key",
+        "INVOICEEXPRESS_ACCOUNT_NAME": "your-account-name"
+      }
+    }
+  }
+}
 ```
 
-### Generate PDF
-```
-Generate a PDF for invoice 12345
-```
+</details>
 
-### Update Invoice
-```
-Update invoice 12345 to change the due date to 2024-03-15
-```
+<details>
+<summary>
+<b>Install in Cline</b>
+</summary>
 
-### Change Invoice State
-```
-Finalize invoice 12345 so it can't be edited anymore
-Cancel invoice 12345 with the reason "Customer requested cancellation"
-```
+You can easily install InvoiceExpress MCP through the [Cline MCP Server Marketplace](https://cline.bot/mcp-marketplace) or manually:
 
-### Get Related Documents
+```json
+{
+  "mcpServers": {
+    "invoiceexpress": {
+      "command": "npx",
+      "args": ["-y", "@wizardingcode/invoiceexpress-mcp@latest"],
+      "env": {
+        "INVOICEEXPRESS_API_KEY": "your-api-key",
+        "INVOICEEXPRESS_ACCOUNT_NAME": "your-account-name"
+      }
+    }
+  }
+}
 ```
-Show me all documents related to invoice 12345
-```
 
-### Generate Payment
-```
-Generate a payment receipt for invoice 12345:
-- Amount: 500.00
-- Date: 2024-01-20
-- Payment method: Bank transfer (TB)
-```
+</details>
 
-### Cancel Payment
-```
-Cancel payment receipt 67890 with reason "Payment reversed by bank"
-```
+<details>
+<summary><b>Install in BoltAI</b></summary>
 
-### Get QR Code
-```
-Get the QR code for invoice 12345
-```
+Open the "Settings" page of the app, navigate to "Plugins," and enter the following JSON:
 
-### Update Client
-```
-Update client ID 123 with new email address: newemail@example.com
-Update client "ABC Company" with new payment terms: 60 days
+```json
+{
+  "mcpServers": {
+    "invoiceexpress": {
+      "command": "npx",
+      "args": ["-y", "@wizardingcode/invoiceexpress-mcp@latest"],
+      "env": {
+        "INVOICEEXPRESS_API_KEY": "your-api-key",
+        "INVOICEEXPRESS_ACCOUNT_NAME": "your-account-name"
+      }
+    }
+  }
+}
 ```
 
-### Find Client
-```
-Find client by name "ABC Company Ltd"
-Find client by code "CLI001"
-```
+More information is available on [BoltAI's Documentation site](https://docs.boltai.com/docs/plugins/mcp-servers).
 
-### List Client Invoices
-```
-Show me all invoices for client ID 456
-List invoices for client "XYZ Corporation" with pagination
-```
+</details>
 
-### List Estimates
-```
-Show me all quotes from this month with status "sent"
-```
+<details>
+<summary><b>Using Docker</b></summary>
 
-### Create Estimate
-```
-Create a quote for client "XYZ Company" with:
-- Date: 2024-01-15
-- Due date: 2024-02-15
-- Item: Design services, €500, quantity 20 hours
-```
+If you prefer to run the MCP server in a Docker container:
 
-### Send Estimate by Email
-```
-Send quote ID 54321 by email to client@example.com
-```
+```dockerfile
+FROM node:18-alpine
 
-### Change Estimate State
-```
-Accept quote 54321
-Refuse proforma 98765 
-Cancel fees note 11111 with reason "Client changed requirements"
-```
+WORKDIR /app
 
-### List Guides
-```
-Show me all shipping guides with status "sent" (non-archived)
-List transport guides from last week
-```
+# Install the latest version globally
+RUN npm install -g @wizardingcode/invoiceexpress-mcp
 
-### Create Guide
-```
-Create a shipping guide:
-- Date: 2024-01-20
-- Due date: 2024-01-25
-- Loaded at: 2024-01-20 10:30
-- From: Warehouse A, Lisbon, 1000-001, Portugal
-- To: Store B, Porto, 4000-001, Portugal
-- Client: ABC Logistics
-- Item: Product shipment, 100 units
-```
+# Set environment variables
+ENV INVOICEEXPRESS_API_KEY=your-api-key
+ENV INVOICEEXPRESS_ACCOUNT_NAME=your-account-name
 
-### Send Guide by Email
+# Default command to run the server
+CMD ["invoiceexpress-mcp"]
 ```
-Send shipping guide ID 12345 by email to logistics@example.com
-```
 
-### Change Guide State
-```
-Finalize shipping guide 12345
-Cancel transport guide 67890 with reason "Delivery rescheduled"
-```
+Build and configure:
 
-### Get Guide QR Code
-```
-Get QR code for finalized shipping guide 12345
+```bash
+docker build -t invoiceexpress-mcp .
 ```
 
-### List Items
-```
-Show me all items/products in the catalog
-List items with pagination (page 2, 20 items per page)
-```
+</details>
 
-### Create Item
-```
-Create a new item:
-- Name: Consulting Hour
-- Description: Professional consulting services
-- Unit price: 75.00
-- Unit: hour
-- Tax: IVA23
-```
+<details>
+<summary><b>Install in Windows</b></summary>
 
-### Update Item
-```
-Update item ID 789 with new price: 85.00
-Update item "Web Development" with new description
-```
+The configuration on Windows is slightly different compared to Linux or macOS:
 
-### Delete Item
+```json
+{
+  "mcpServers": {
+    "invoiceexpress": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "@wizardingcode/invoiceexpress-mcp@latest"],
+      "disabled": false,
+      "env": {
+        "INVOICEEXPRESS_API_KEY": "your-api-key",
+        "INVOICEEXPRESS_ACCOUNT_NAME": "your-account-name"
+      }
+    }
+  }
+}
 ```
-Delete item ID 456
-Remove "Old Service" from the catalog
-```
 
-### List Sequences
-```
-Show me all document sequences
-List all sequences in the system
-```
+</details>
 
-### Get Sequence
-```
-Get details for sequence ID 123
-Show me sequence 2024 details
-```
+## 🔧 Configuration
 
-### Create Sequence
-```
-Create a new sequence for series "2024"
-Create sequence "2025" and set it as default
-```
+### Required Environment Variables
 
-### Set Sequence as Current
-```
-Set sequence ID 456 as the current/default sequence
-Make sequence 789 the default
+```bash
+INVOICEEXPRESS_API_KEY=your-api-key-here
+INVOICEEXPRESS_ACCOUNT_NAME=your-account-name
 ```
 
-### Register Sequence
-```
-Register sequence ID 123 with the Tax Authority
-Submit sequence 456 to AT for validation
-```
+### Optional Environment Variables
 
-### List Taxes
+```bash
+MCP_MODE=silent  # Reduces logging output for production
 ```
-Show me all taxes
-List all available tax rates
-```
 
-### Get Tax
-```
-Get details for tax ID 31554
-Show me information about IVA23
-```
+### Getting Your InvoiceExpress Credentials
 
-### Create Tax
-```
-Create a new tax:
-- Name: IVA23
-- Value: 23.0
-- Region: PT
-- Code: NOR
-- Set as default
-```
+1. Log in to your InvoiceExpress account
+2. Go to **Settings** > **API Access**
+3. Generate or copy your API key
+4. Note your account name (subdomain in your InvoiceExpress URL)
 
-### Update Tax
-```
-Update tax ID 31554 with new value: 24.0
-Change tax "IVA6" to value 7.0
-```
+## 🔨 Available Tools (60+)
 
-### Delete Tax
-```
-Delete tax ID 31555
-Remove unused tax rate
-```
+InvoiceExpress MCP provides 60+ specialized tools organized by feature area:
 
-### Get Account
-```
-Get details for account ID 12345
-Show me account information
-```
+### 📧 Invoice Management (11 tools)
 
-### Create Account
-```
-Create a new account:
-- Organization: Tech Solutions Ltd
-- Email: admin@techsolutions.com
-- Password: secure_password
-- Accept terms: Yes
-- Fiscal ID: 508000111
-```
+- `invoice_list` - List invoices with advanced filtering (status, date, client, amount)
+- `invoice_create` - Create invoices with Portuguese tax compliance
+- `invoice_get` - Get detailed invoice information
+- `invoice_update` - Update existing invoices
+- `invoice_send_email` - Send invoices via email with customizable messages
+- `invoice_generate_pdf` - Generate PDF documents
+- `invoice_change_state` - Change invoice states (draft, sent, final, canceled)
+- `invoice_get_related_documents` - Get related documents (credit notes, receipts)
+- `invoice_generate_payment` - Generate payment references (MB, CC, PayPal)
+- `invoice_cancel_payment` - Cancel payment references
+- `invoice_get_qrcode` - Generate QR codes for digital payments
 
-### Update Account
-```
-Update account ID 12345:
-- New organization name: Tech Solutions International
-- Update email: newemail@techsolutions.com
-- Add address and postal code
-```
+### 👥 Client Management (7 tools)
 
-### Create Account for Existing User
-```
-Create new account for existing user:
-- User email: existing@user.com
-- User password: their_password
-- New organization: Second Company Ltd
-- Accept terms: Yes
-```
+- `client_list` - List all clients with pagination and filtering
+- `client_create` - Create new clients with Portuguese fiscal information
+- `client_get` - Get detailed client information
+- `client_update` - Update client information and settings
+- `client_find_by_name` - Search clients by name or partial match
+- `client_find_by_code` - Find clients by unique code
+- `client_list_invoices` - List all invoices for a specific client
 
-### Update AT Communication
-```
-Configure Tax Authority communication:
-- AT subuser: 123456789/3
-- AT password: my_at_password
-- Communication type: auto
-```
+### 📋 Estimates & Quotes (7 tools)
 
-### Export SAF-T
-```
-Export SAF-T file for January 2024
-Export tax file for month 12 year 2023
-Generate SAF-T for 03/2024
-```
+- `estimate_list` - List estimates, quotes, proformas, and fee notes
+- `estimate_create` - Create professional estimates and quotes
+- `estimate_get` - Get detailed estimate information
+- `estimate_update` - Update existing estimates
+- `estimate_send_email` - Send estimates via email
+- `estimate_generate_pdf` - Generate PDF documents
+- `estimate_change_state` - Manage estimate workflow states
 
-**Note:** SAF-T (Standard Audit File for Tax) is required for Portuguese tax compliance. Files must be submitted by the 5th of each month. The export may take time to process - if you receive a "processing" status, retry after a few minutes.
+### 🚚 Guides & Transport (8 tools)
 
-### Get Client Balance
-```
-Get balance for client ID 12345
-Show me financial balance for client 789
-```
+- `guide_list` - List shipping guides, transport documents, devolution notes
+- `guide_create` - Create shipping and transport documentation
+- `guide_get` - Get detailed guide information
+- `guide_update` - Update transport documentation
+- `guide_send_email` - Send guides via email
+- `guide_generate_pdf` - Generate PDF transport documents
+- `guide_change_state` - Manage guide workflow states
+- `guide_get_qrcode` - Generate QR codes for tracking
+
+### 📦 Product Catalog (5 tools)
+
+- `item_list` - List products and services with filtering
+- `item_create` - Create new products/services with tax information
+- `item_get` - Get detailed item information
+- `item_update` - Update product/service information
+- `item_delete` - Remove items from catalog
 
-### Update Client Initial Balance
+### 🔢 Document Sequences (5 tools)
+
+- `sequence_list` - List all document numbering sequences
+- `sequence_get` - Get detailed sequence information
+- `sequence_create` - Create new document sequences
+- `sequence_set_as_current` - Set default document sequence
+- `sequence_register` - Register sequences with Portuguese Tax Authority (AT)
+
+### 💰 Tax Management (5 tools)
+
+- `tax_list` - List all configured tax rates
+- `tax_create` - Create new tax rates (IVA, regional taxes)
+- `tax_get` - Get detailed tax information
+- `tax_update` - Update tax rate configurations
+- `tax_delete` - Remove unused tax rates
+
+### 🏢 Account Management (5 tools)
+
+- `account_get` - Get account information and settings
+- `account_create` - Create new InvoiceExpress accounts
+- `account_update` - Update account settings and information
+- `account_create_for_existing_user` - Create additional accounts for existing users
+- `account_update_at_communication` - Configure Tax Authority (AT) communication
+
+### 📊 SAF-T Tax Compliance (1 tool)
+
+- `saft_export` - Export monthly SAF-T files for Portuguese tax authority submission
+
+### 💳 Treasury Operations (7 tools)
+
+- `treasury_get_client_balance` - Get client financial balance and status
+- `treasury_update_client_initial_balance` - Set or update client initial balances
+- `treasury_get_regularizations` - List financial regularizations
+- `treasury_create_regularization` - Create balance regularizations
+- `treasury_delete_regularization` - Remove regularizations
+- `treasury_create_movement` - Record payments and reimbursements
+- `treasury_delete_movement` - Remove treasury movements
+
+## 💡 Usage Examples
+
+### Creating a Complete Invoice
+
 ```
-Set initial balance for client 12345:
-- Value: 1500.00
-- Date: 2024-01-01
-- Observation: Opening balance
+Create an invoice for client "Tech Solutions Ltd" with the following:
+- Service: Web Development (40 hours × €75/hour)
+- Product: Hosting Setup (1 × €200)
+- Apply IVA 23% to all items
+- Due date: 30 days from today
+- Generate PDF and send by email
 ```
 
-### Get Regularizations
+### Portuguese Tax Compliance
+
 ```
-List all regularizations for client 12345
-Show me regularization entries for client 789
+Generate SAF-T file for January 2024 for tax authority submission.
+The file must be ready by February 5th deadline.
 ```
+
+### Client Balance Management
 
-### Create Regularization
 ```
-Create regularization for client 12345:
-- Value: 250.00
-- Date: 2024-03-15
-- Observation: Balance adjustment
+Update client "ABC Company" initial balance to €1,500 dated January 1st, 2024.
+Create a payment record of €500 received via Multibanco on March 15th.
 ```
 
-### Delete Regularization
+### Document Workflow
+
 ```
-Delete regularization ID 456 for client 12345
-Remove regularization entry 789
+Create a quote for "New Project Proposal" for client XYZ Corp.
+Convert the accepted quote to an invoice.
+Generate shipping guide for product delivery.
 ```
 
-### Create Treasury Movement
-```
-Record payment from client 12345:
-- Value: 500.00
-- Type: Payment
-- Date: 2024-03-20
-- Payment method: MB
+## 🇵🇹 Portuguese Tax Features
 
-Create reimbursement for client 789:
-- Value: 100.00
-- Type: Reimbursement
-- Date: 2024-03-21
+### SAF-T Compliance
+- Automatic monthly SAF-T file generation
+- Portuguese Tax Authority (AT) format compliance
+- Submission deadline reminders (5th of each month)
+- Complete audit trail maintenance
+
+### Portuguese Date Formats
+- Automatic conversion between ISO (YYYY-MM-DD) and Portuguese (DD/MM/YYYY) formats
+- Compliance with Portuguese business standards
+- Proper date validation and formatting
+
+### Tax Authority Integration
+- AT communication configuration
+- Document sequence registration
+- Validation code management
+- Compliance with Portuguese legislation
+
+### Portuguese VAT Support
+- Standard rates: IVA 6%, 13%, 23%
+- Regional rates for Açores and Madeira
+- Automatic tax calculations
+- Tax exemption handling
+
+## 🚨 Troubleshooting
+
+<details>
+<summary><b>API Key Issues</b></summary>
+
+If you encounter authentication errors:
+
+1. Verify your API key in InvoiceExpress settings
+2. Ensure your account name matches your subdomain
+3. Check that your account has API access enabled
+
+```bash
+# Test your credentials
+INVOICEEXPRESS_API_KEY=your-key INVOICEEXPRESS_ACCOUNT_NAME=your-account invoiceexpress-mcp --help
 ```
 
-### Delete Treasury Movement
+</details>
+
+<details>
+<summary><b>Module Not Found Errors</b></summary>
+
+If you encounter `ERR_MODULE_NOT_FOUND`, try using `bunx` instead of `npx`:
+
+```json
+{
+  "mcpServers": {
+    "invoiceexpress": {
+      "command": "bunx",
+      "args": ["-y", "@wizardingcode/invoiceexpress-mcp@latest"]
+    }
+  }
+}
 ```
-Delete treasury movement ID 123 for client 12345
-Remove payment record 456
+
+</details>
+
+<details>
+<summary><b>Portuguese Date Format Issues</b></summary>
+
+The server automatically handles date conversions. If you encounter date-related errors:
+
+1. Ensure dates are in ISO format (YYYY-MM-DD) in requests
+2. The server converts to Portuguese format (DD/MM/YYYY) for InvoiceExpress API
+3. Check that dates are valid and within reasonable ranges
+
+</details>
+
+<details>
+<summary><b>SAF-T Export Problems</b></summary>
+
+SAF-T file generation may take time:
+
+1. Check if the export is still processing (202 status)
+2. Retry after a few minutes for large datasets
+3. Ensure your account has SAF-T export permissions
+4. Verify the month/year parameters are valid
+
+</details>
+
+## 💻 Development
+
+Clone the project and install dependencies:
+
+```bash
+git clone https://github.com/andreagroferreira/invoiceexpress-mcp.git
+cd invoiceexpress-mcp
+npm install
 ```
 
-## API Features
+Build:
 
-### Date Format Support
-The server automatically converts dates between ISO format (YYYY-MM-DD) and Portuguese format (DD/MM/YYYY) as required by the InvoiceExpress API.
+```bash
+npm run build
+```
 
-### Document Types
-Supports multiple document types:
+Run the server:
 
-**Invoices:**
-- Invoices
-- Invoice Receipts
-- Simplified Invoices
-- Credit Notes
-- Debit Notes
+```bash
+npm start
+```
 
-**Estimates:**
-- Quotes
-- Proformas
-- Fees Notes
+### CLI Arguments
 
-**Guides:**
-- Shippings
-- Transports
-- Devolutions
+`invoiceexpress-mcp` accepts the following CLI flags:
 
-### Advanced Filtering
-List operations support comprehensive filtering:
-- By status (draft, sent, final, canceled, settled, unsettled)
-- By date ranges
-- By client
-- Text search across invoice details
-- By reference number
-- By total amount ranges
+- `--transport <stdio|http|sse>` – Transport to use (`stdio` by default)
+- `--port <number>` – Port to listen on when using `http` or `sse` transport (default `3000`)
+- `--help, -h` – Show help message
 
-## Project Structure
+Example with help:
 
+```bash
+invoiceexpress-mcp --help
 ```
-src/
-├── api/              # InvoiceExpress API client
-├── server/           # MCP server implementation
-├── tools/            # MCP tool definitions
-│   ├── invoices/     # Invoice-related tools
-│   ├── clients/      # Client-related tools
-│   ├── estimates/    # Estimate-related tools
-│   ├── guides/       # Guide-related tools
-│   ├── items/        # Item-related tools
-│   ├── sequences/    # Sequence-related tools
-│   ├── taxes/        # Tax-related tools
-│   ├── accounts/     # Account-related tools
-│   ├── saft/         # SAF-T export tools
-│   └── treasury/     # Treasury management tools
-├── utils/            # Utilities (logging, validation, errors)
-└── types/            # TypeScript type definitions
+
+<details>
+<summary><b>Testing with MCP Inspector</b></summary>
+
+```bash
+npx -y @modelcontextprotocol/inspector npx @wizardingcode/invoiceexpress-mcp
 ```
+
+</details>
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## 🤝 About WizardingCode.io
+
+InvoiceExpress MCP is developed and maintained by [WizardingCode.io](https://wizardingcode.io), specializing in AI-powered business automation solutions for Portuguese companies.
+
+### Connect with Us
 
-## Contributing
+- 🌐 Website: [wizardingcode.io](https://wizardingcode.io)
+- 📧 Email: [andreagroferreira.af@gmail.com](mailto:andreagroferreira.af@gmail.com)
+- 💼 LinkedIn: [WizardingCode](https://linkedin.com/company/wizardingcode)
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+### Support
 
-## License
+For technical support, feature requests, or business inquiries:
 
-MIT License - see [LICENSE](LICENSE) file for details
+1. 🐛 Report issues on [GitHub](https://github.com/andreagroferreira/invoiceexpress-mcp/issues)
+2. 📧 Email us at [andreagroferreira.af@gmail.com](mailto:andreagroferreira.af@gmail.com)
+3. 💬 Professional support available for enterprise customers
 
-## Support
+---
 
-For issues and feature requests, please use the [GitHub Issues](https://github.com/yourusername/mcp-invoice-express/issues) page.
+**Built with ❤️ in Portugal for Portuguese businesses using AI**
