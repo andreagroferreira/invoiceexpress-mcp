@@ -9,6 +9,13 @@ import { InvoiceExpressClient } from '../api/InvoiceExpressClient.js';
 import { InvoicesEndpoint } from '../api/endpoints/invoices.js';
 import { ClientsEndpoint } from '../api/endpoints/clients.js';
 import { EstimatesEndpoint } from '../api/endpoints/estimates.js';
+import { GuidesEndpoint } from '../api/endpoints/guides.js';
+import { ItemsEndpoint } from '../api/endpoints/items.js';
+import { SequencesEndpoint } from '../api/endpoints/sequences.js';
+import { TaxesEndpoint } from '../api/endpoints/taxes.js';
+import { AccountsEndpoint } from '../api/endpoints/accounts.js';
+import { SAFTEndpoint } from '../api/endpoints/saft.js';
+import { TreasuryEndpoint } from '../api/endpoints/treasury.js';
 import { createLogger } from '../utils/logger.js';
 import { InvoiceExpressError } from '../utils/errors.js';
 import type { Config } from './config.js';
@@ -22,6 +29,13 @@ export class McpServer {
   public invoicesEndpoint: InvoicesEndpoint;
   public clientsEndpoint: ClientsEndpoint;
   public estimatesEndpoint: EstimatesEndpoint;
+  public guidesEndpoint: GuidesEndpoint;
+  public itemsEndpoint: ItemsEndpoint;
+  public sequencesEndpoint: SequencesEndpoint;
+  public taxesEndpoint: TaxesEndpoint;
+  public accountsEndpoint: AccountsEndpoint;
+  public saftEndpoint: SAFTEndpoint;
+  public treasuryEndpoint: TreasuryEndpoint;
 
   constructor(private readonly config: Config) {
     this.server = new Server(
@@ -44,6 +58,13 @@ export class McpServer {
     this.invoicesEndpoint = new InvoicesEndpoint(this.apiClient);
     this.clientsEndpoint = new ClientsEndpoint(this.apiClient);
     this.estimatesEndpoint = new EstimatesEndpoint(this.apiClient);
+    this.guidesEndpoint = new GuidesEndpoint(this.apiClient);
+    this.itemsEndpoint = new ItemsEndpoint(this.apiClient);
+    this.sequencesEndpoint = new SequencesEndpoint(this.apiClient);
+    this.taxesEndpoint = new TaxesEndpoint(this.apiClient);
+    this.accountsEndpoint = new AccountsEndpoint(this.apiClient);
+    this.saftEndpoint = new SAFTEndpoint(this.apiClient);
+    this.treasuryEndpoint = new TreasuryEndpoint(this.apiClient);
 
     this.setupHandlers();
   }

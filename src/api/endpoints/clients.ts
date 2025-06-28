@@ -39,6 +39,13 @@ export class ClientsEndpoint {
     return response.client;
   }
 
+  async findByName(name: string): Promise<Client> {
+    const response = await this.client.get<{ client: Client }>(`/clients/find-by-name.json`, {
+      client_name: name,
+    });
+    return response.client;
+  }
+
   async create(data: CreateClientRequest): Promise<Client> {
     const response = await this.client.post<{ client: Client }>('/clients.json', {
       client: data,

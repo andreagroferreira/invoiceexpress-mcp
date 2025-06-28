@@ -51,7 +51,7 @@ export class EstimatesEndpoint {
   private formatEstimateData(data: CreateEstimateRequest | UpdateEstimateRequest): any {
     const entries = Object.entries(data);
     if (entries.length === 0) return data;
-    const [key, estimate] = entries[0];
+    const [key, estimate] = entries[0]!;
     const formatted: any = { [key]: { ...estimate } };
     
     if (estimate && estimate.date) {
